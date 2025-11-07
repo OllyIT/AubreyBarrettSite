@@ -1,16 +1,26 @@
-// infinite-gallery.js
 const gallery = document.getElementById("gallery");
 const sentinel = document.getElementById("sentinel");
 
 let batchSize = 12; // how many new images per scroll
 let isLoading = false;
+const totalImages = 52; // total images available
+let imagesLoaded = 0;   // track how many images have been added
 
-// Function to create empty <img> placeholders
 function addMoreImages() {
   if (isLoading) return;
+  if (imagesLoaded >= totalImages) {
+    // Stop loading if we've reached the end
+    observer.disconnect(); // stop observing sentinel
+    return;
+  }
+
   isLoading = true;
 
-  for (let i = 0; i < batchSize; i++) {
+  // Calculate how many images we can actually add this batch
+  const remainingImages = totalImages - imagesLoaded;
+  const currentBatchSize = Math.min(batchSize, remainingImages);
+
+  for (let i = 0; i < currentBatchSize; i++) {
     const div = document.createElement("div");
     div.className = "gallery-item";
 
@@ -25,6 +35,8 @@ function addMoreImages() {
     div.appendChild(img);
     div.appendChild(caption);
     gallery.appendChild(div);
+
+    imagesLoaded++; // increment loaded counter
   }
 
   // Wait a tick so new elements exist before calling the randomizer
