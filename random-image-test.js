@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const baseUrl = "https://images.rrett.net/first-test-photos/";
-    const totalImages = 8;
+    const totalImages = 11;
     const fileExtension = "jpeg";
 
     // Get hero and gallery images

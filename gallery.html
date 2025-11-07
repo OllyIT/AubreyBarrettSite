@@ -1,94 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - In Loving Memory</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - In Loving Memory</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Photo Gallery</h1>
-            <nav>
-                <a href="index.html" class="nav-link">← Back to Home</a>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="container">
+      <h1>Photo Gallery</h1>
+      <nav>
+        <a href="index.html" class="nav-link">← Back to Home</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
-        <section class="gallery-section">
-            <h2 class="gallery-title">Cherished Memories</h2>
-            
-            <div class="full-gallery">
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
+  <main class="container">
+    <section class="gallery-section">
+      <h2 class="gallery-title">Cherished Memories</h2>
+      <div id="gallery" class="full-gallery"></div>
+      <div id="sentinel"></div>
+    </section>
+  </main>
 
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
+  <footer>
+    <div class="container">
+      <p>Forever in our hearts</p>
+    </div>
+  </footer>
 
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-
-                <div class="gallery-item">
-                    <img class="random-photo" alt="Gallery preview 1">
-                    <p class="caption"></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>Forever in our hearts</p>
-        </div>
-    </footer>
-    <script src="random-image-test.js"></script>
+  <script src="random-image-test.js"></script>
+  <script src="infinite-gallery.js"></script>
 </body>
 </html>
