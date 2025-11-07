@@ -1,30 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const baseUrl = "https://images.rrett.net/first-test-photos/";
-    const totalImages = 11;
-    const fileExtension = "jpeg";
+// random-image-test.js
 
-    // Get hero and gallery images
-    const heroImg = document.getElementById("mainPhoto");
-    const galleryImgs = document.querySelectorAll(".random-photo");
+// Global function to assign random images
+function setRandomImages() {
+  const baseUrl = "https://images.rrett.net/first-test-photos/";
+  const totalImages = 11;
+  const fileExtension = "jpeg";
 
-    // Combine into a single array (hero + gallery)
-    const allImgs = [];
-    if (heroImg) allImgs.push(heroImg);
-    galleryImgs.forEach(img => allImgs.push(img));
+  // Hero image (if exists)
+  const heroImg = document.getElementById("mainPhoto");
+  if (heroImg && !heroImg.src) {
+    const heroIndex = Math.floor(Math.random() * totalImages) + 1;
+    heroImg.src = `${baseUrl}${heroIndex}.${fileExtension}`;
+  }
 
-    // Create an array of image indexes and shuffle it
-    let indexes = Array.from({ length: totalImages }, (_, i) => i + 1); // [1,2,...,8]
-
-    // Shuffle the array (Fisher-Yates)
-    for (let i = indexes.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+  // Gallery / other images
+  const galleryImgs = document.querySelectorAll(".random-photo");
+  
+  // Only assign images to <img> without src
+  galleryImgs.forEach((img, idx) => {
+    if (!img.getAttribute("src")) {
+      // Wrap around like before
+      const imageIndex = (idx % totalImages) + 1;
+      img.src = `${baseUrl}${imageIndex}.${fileExtension}`;
     }
+  });
+}
 
-    // Assign images sequentially
-    allImgs.forEach((img, idx) => {
-        // Wrap around if more <img> than available images
-        const imageIndex = indexes[idx % totalImages];
-        img.src = `${baseUrl}${imageIndex}.${fileExtension}`;
-    });
-});
+// Run once on page load
+document.addEventListener("DOMContentLoaded", setRandomImages);
